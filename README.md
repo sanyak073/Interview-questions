@@ -63,3 +63,17 @@ The basic MVCVM guidelines we follow are:
     We also noted that the Sculpture code-gen framework implements MVVM and a pattern similar to Prism AND it also makes extensive use of controllers to separate all use-case logic.
 
 An additional benefit of using an MVCVM model is that only the controller objects need to exist in memory for the life of the application and the controllers contain mainly code and little state data (i.e. tiny memory overhead). This makes for much less memory-intensive apps than solutions where view-models have to be retained and it is ideal for certain types of mobile development (e.g. Windows Mobile using Silverlight/Prism/MEF). This does of course depend on the type of application as you may still need to retain the occasional cached VMs for responsiveness.
+
+#Postback
+A postback originates from the client browser. Usually one of the controls on the page will be manipulated by the user (a button clicked or dropdown changed, etc), and this control will initiate a postback. The state of this control, plus all other controls on the page,(known as the View State) is Posted Back to the web server.
+
+What happens?
+Most commonly the postback causes the web server to create an instance of the code behind class of the page that initiated the postback. This page object is then executed within the normal page lifecycle with a slight difference (see below). If you do not redirect the user specifically to another page somewhere during the page lifecycle, the final result of the postback will be the same page displayed to the user again, and then another postback could happen, and so on.
+
+Why does it happen?
+The web application is running on the web server. In order to process the user’s response, cause the application state to change, or move to a different page, you need to get some code to execute on the web server. The only way to achieve this is to collect up all the information that the user is currently working on and send it all back to the server.
+
+The state of the controls on the posting back page are available within the context. This will allow you to manipulate the page controls or redirect to another page based on the information there.
+Controls on a web form have events, and therefore event handlers, just like any other controls. The initialisation part of the page lifecycle will execute before the event handler of the control that caused the post back. Therefore the code in the page’s Init and Load event handler will execute before the code in the event handler for the button that the user clicked.
+The value of the “Page.IsPostBack” property will be set to “true” when the page is executing after a postback, and “false” otherwise.
+Technologies like Ajax and MVC have changed the way postbacks work.
