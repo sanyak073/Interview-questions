@@ -77,3 +77,10 @@ The state of the controls on the posting back page are available within the cont
 Controls on a web form have events, and therefore event handlers, just like any other controls. The initialisation part of the page lifecycle will execute before the event handler of the control that caused the post back. Therefore the code in the page’s Init and Load event handler will execute before the code in the event handler for the button that the user clicked.
 The value of the “Page.IsPostBack” property will be set to “true” when the page is executing after a postback, and “false” otherwise.
 Technologies like Ajax and MVC have changed the way postbacks work.
+
+#SOLID
+    S	Single responsibility principle (a class should have only a single responsibility (i.e. only one potential change in the software's specification should be able to affect the specification of the class))
+    O	Open/closed principle (“software entities … should be open for extension, but closed for modification.”)
+    L	Liskov substitution principle (“objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.” See also design by contract.)
+    I	Interface segregation principle (“many client-specific interfaces are better than one general-purpose interface.”)
+    D	Dependency inversion principle (one should “Depend upon Abstractions. Do not depend upon concretions.”)
