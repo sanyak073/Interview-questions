@@ -84,3 +84,21 @@ Technologies like Ajax and MVC have changed the way postbacks work.
     L	Liskov substitution principle (“objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.” See also design by contract.)
     I	Interface segregation principle (“many client-specific interfaces are better than one general-purpose interface.”)
     D	Dependency inversion principle (one should “Depend upon Abstractions. Do not depend upon concretions.”)
+
+S = Single Responsibility Principle
+So I'd expect to see a well organised folder/file structure & Object Hierarchy. Each class/piece of functionality should be named that its functionality is very obvious, and it should only contain logic to perform that task.
+If you saw huge manager classes with thousand of lines of code, that would be a sign that single responsibility wasn't being followed.
+
+O = Open/closed Principle
+This is basically the idea that new functionality should be added through new classes that have a minimum of impact on/require modification of existing functionality.
+I'd expect to see lots of use of object inheritance, sub-typing, interfaces and abstract classes to separate out the design of a piece of functionality from the actual implementation, allowing others to come along and implement other versions along side without affecting the original.
+
+L = Liskov substitution principle
+This has to do with the ability to treat sub-types as their parent type. This comes out of the box in C# if you are implementing a proper inherited object hierarchy.
+I'd expect to see code treating common objects as their base type and calling methods on the base/abstract classes rather than instantiating and working on the sub-types themselves.
+
+I = Interface Segregation Principle
+This is similar to SRP. Basically, you define smaller subsets of functionality as interfaces and work with those to keep your system decoupled (e.g. a FileManager might have the single responsibilty of dealing with File I/O, but that could implement a IFileReader and IFileWriter which contained the specific method definitions for the reading and writing of files).
+
+D = Dependency Inversion Principle.
+Again this relates to keeping a system decoupled. Perhaps you'd be on the lookout for the use of a .NET Dependency Injection library, being used in the solution such as Unity or Ninject or a ServiceLocator system such as AutoFacServiceLocator.
