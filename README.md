@@ -102,3 +102,17 @@ This is similar to SRP. Basically, you define smaller subsets of functionality a
 
 D = Dependency Inversion Principle.
 Again this relates to keeping a system decoupled. Perhaps you'd be on the lookout for the use of a .NET Dependency Injection library, being used in the solution such as Unity or Ninject or a ServiceLocator system such as AutoFacServiceLocator.
+
+ORM Advantages:
+Speeds-up Development - eliminates the need for repetitive SQL code.
+Reduces Development Time.
+Reduces Development Costs.
+Overcomes vendor specific SQL differences - the ORM knows how to write vendor specific SQL so you don't have to.
+
+ORM Disadvantages:
+Loss in developer productivity whilst they learn to program with ORM.
+Developers lose understanding of what the code is actually doing - the developer is more in control using SQL.
+ORM has a tendency to be slow.
+ORM fail to compete against SQL queries for complex queries.
+
+Hibernate and the Entity Framework might take time to learn but in the long run they will save time in development. LINQ-SQL on the other hand has little to no learning curve involved.
