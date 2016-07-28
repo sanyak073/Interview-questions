@@ -1,0 +1,2 @@
+Stack is a LIFO collection. It provides a powerful and simple last-in-first-out data structure.
+This can help you develop parsers quickly and also replace complex recursive algorithms. Stack is a generic type.
